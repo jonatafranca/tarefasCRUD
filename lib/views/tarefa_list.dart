@@ -19,21 +19,20 @@ class _TarefaListState extends State<TarefaList> {
                 labelText: 'Nova tarefa',
               ),
             ),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {},
+                child: Text('Salvar'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('Cancelar'),
+              ),
+            ],
           );
         });
-    actions:
-    <Widget>[
-      TextButton(
-        onPressed: () {},
-        child: Text('Salvar'),
-      ),
-    ];
-    TextButton(
-      onPressed: () {
-        Navigator.pop(context);
-      },
-      child: Text('Cancelar'),
-    );
   }
 
   @override
