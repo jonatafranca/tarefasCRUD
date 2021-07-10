@@ -9,17 +9,22 @@ class TarefaTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       title: Text(tarefa.name),
-      trailing: Row(
-        children: <Widget>[
-          IconButton(
-            onPressed: () => {},
-            icon: Icon(Icons.edit),
-          ),
-          IconButton(
-            onPressed: () => {},
-            icon: Icon(Icons.delete),
-          )
-        ],
+      trailing: Container(
+        width: 100,
+        child: Row(
+          children: <Widget>[
+            IconButton(
+              onPressed: () => {},
+              color: Colors.red,
+              icon: Icon(Icons.edit),
+            ),
+            IconButton(
+              onPressed: () => {},
+              color: Colors.red,
+              icon: Icon(Icons.delete),
+            )
+          ],
+        ),
       ),
     );
   }
