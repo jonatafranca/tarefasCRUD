@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:tarefas_crud/componets/tarefa_tile.dart';
+import 'package:tarefas_crud/views/tarefa_controller.dart';
 
 class TarefaList extends StatefulWidget {
   @override
@@ -6,6 +8,8 @@ class TarefaList extends StatefulWidget {
 }
 
 class _TarefaListState extends State<TarefaList> {
+  final controller = TarefaController();
+
   _dialog() {
     showDialog(
         context: context,
@@ -43,12 +47,13 @@ class _TarefaListState extends State<TarefaList> {
           style: TextStyle(color: Colors.white),
         ),
       ),
-      // body: ListView.builder(
-      // itemCount: tarefas.length,
-      // itemBuilder: (_, index) {
-      //   // return TarefaTile();
-      // },
-      // ),
+      body: ListView.builder(
+        itemCount: controller.listTarefas.length,
+        itemBuilder: (_, index) {
+          var tarefa = controller.listTarefas[index];
+          return TarefaTile(name: tarefa);
+        },
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _dialog();
