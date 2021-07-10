@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tarefas_crud/data/rotina_tarefa.dart';
 
 class TarefaList extends StatefulWidget {
   @override
@@ -37,8 +36,6 @@ class _TarefaListState extends State<TarefaList> {
 
   @override
   Widget build(BuildContext context) {
-    final tarefas = {...ROTINA_TAREFA};
-
     return Scaffold(
       appBar: AppBar(
         title: Text(
