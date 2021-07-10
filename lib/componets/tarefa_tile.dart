@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tarefas_crud/models/tarefas.dart';
+import 'package:tarefas_crud/models/tarefa.dart';
 
 class TarefaTile extends StatelessWidget {
   final Tarefa tarefa;

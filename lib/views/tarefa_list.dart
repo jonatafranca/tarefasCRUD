@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:tarefas_crud/componets/tarefas_tile.dart';
-import 'package:tarefas_crud/data/rotina_tarefas.dart';
+import 'package:tarefas_crud/componets/tarefa_tile.dart';
+import 'package:tarefas_crud/data/rotina_tarefa.dart';
 
 class TarefaList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final tarefas = {...ROTINA_TAREFAS};
+    final tarefas = {...ROTINA_TAREFA};
 
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          'Lista de Tarefas',
+          'Tarefas diárias',
           style: TextStyle(color: Colors.white),
         ),
       ),
