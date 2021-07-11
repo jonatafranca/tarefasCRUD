@@ -22,6 +22,7 @@ class _TarefaListState extends State<TarefaList> {
             title: Text("Adicionar Tarefa"),
             content: TextField(
               onChanged: model.setNome,
+              // onChanged: model != null ? model.setNome : () {},
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 labelText: 'Nova tarefa',
@@ -30,10 +31,48 @@ class _TarefaListState extends State<TarefaList> {
             actions: <Widget>[
               TextButton(
                 onPressed: () {
-                  controller.addTarefa(model);
-                  Navigator.pop(context);
+                  if (model.nome != null && model.nome != '') {
+                    controller.addTarefa(model);
+                    Navigator.pop(context);
+                  }
                 },
                 child: Text('Salvar'),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('Cancelar'),
+              ),
+            ],
+          );
+        });
+  }
+
+  _editDialog(int index) {
+    var model = TarefaModel();
+
+    showDialog(
+        context: context,
+        builder: (_) {
+          return AlertDialog(
+            title: Text("Editar Tarefa"),
+            content: TextFormField(
+              onChanged: model.setNome,
+              initialValue: controller.listTarefas[index].nome,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+              ),
+            ),
+            actions: <Widget>[
+              TextButton(
+                onPressed: () {
+                  if (model.nome != '') {
+                    controller.editTarefa(model);
+                    Navigator.pop(context);
+                  }
+                },
+                child: Text('Atualizar'),
               ),
               TextButton(
                 onPressed: () {
@@ -54,18 +93,6 @@ class _TarefaListState extends State<TarefaList> {
           'Tarefas diárias',
           style: TextStyle(color: Colors.white),
         ),
-        actions: <Widget>[
-          IconButton(
-              onPressed: () {},
-              icon: Observer(
-                builder: (_) {
-                  return Text(
-                    "${controller.totalTarefas}",
-                    style: TextStyle(color: Colors.white),
-                  );
-                },
-              )),
-        ],
       ),
       body: Observer(
         builder: (_) {
@@ -77,6 +104,11 @@ class _TarefaListState extends State<TarefaList> {
                 name: tarefa,
                 removeClicked: () {
                   controller.removeTarefa(tarefa);
+                },
+                editClicked: () {
+                  //chamar o dialog
+                  _editDialog(index);
+                  // controller.editTarefa(tarefa);
                 },
               );
             },
