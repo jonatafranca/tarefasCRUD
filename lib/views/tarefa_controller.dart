@@ -24,7 +24,7 @@ abstract class _TarefaControllerBase with Store {
   }
 
   @action
-  editTarefa(TarefaModel model) {
-    // listTarefas.;
+  editTarefa(TarefaModel model, int index) {
+    listTarefas[index].setNome(model.nome);
   }
 }

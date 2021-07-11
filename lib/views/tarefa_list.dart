@@ -68,7 +68,7 @@ class _TarefaListState extends State<TarefaList> {
               TextButton(
                 onPressed: () {
                   if (model.nome != '') {
-                    controller.editTarefa(model);
+                    controller.editTarefa(model, index);
                     Navigator.pop(context);
                   }
                 },
@@ -106,9 +106,8 @@ class _TarefaListState extends State<TarefaList> {
                   controller.removeTarefa(tarefa);
                 },
                 editClicked: () {
-                  //chamar o dialog
                   _editDialog(index);
-                  // controller.editTarefa(tarefa);
+                  controller.editTarefa(tarefa, index);
                 },
               );
             },
