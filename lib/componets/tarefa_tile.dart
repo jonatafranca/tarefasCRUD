@@ -6,8 +6,10 @@ import 'package:tarefas_crud/models/tarefa_model.dart';
 class TarefaTile extends StatelessWidget {
   final TarefaModel name;
   final Function removeClicked;
+  final Function editClicked;
 
-  const TarefaTile({Key key, this.name, this.removeClicked}) : super(key: key);
+  const TarefaTile({Key key, this.name, this.removeClicked, this.editClicked})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,7 @@ class TarefaTile extends StatelessWidget {
             child: Row(
               children: <Widget>[
                 IconButton(
-                  onPressed: () => {},
+                  onPressed: editClicked,
                   color: Colors.red,
                   icon: Icon(Icons.edit),
                 ),
