@@ -12,4 +12,17 @@ abstract class _TarefaControllerBase with Store {
     TarefaModel(nome: "Tomar café"),
     TarefaModel(nome: "Passear com o cachorro"),
   ].asObservable();
+
+  @computed
+  int get totalTarefas => listTarefas.length;
+
+  @action
+  addTarefa(TarefaModel model) {
+    listTarefas.add(model);
+  }
+
+  @action
+  removeTarefa(TarefaModel model) {
+    listTarefas.removeWhere((tarefa) => tarefa.nome == model.nome);
+  }
 }
